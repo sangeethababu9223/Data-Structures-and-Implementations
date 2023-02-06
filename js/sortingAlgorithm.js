@@ -1,3 +1,5 @@
+// Bubble Sort Implementation
+
 function bubbleSort(arr) {
   for (let j = 0; j < arr.length; j++) {
     for (let i = 0; i < arr.length - j - 1; i++) {
@@ -29,6 +31,8 @@ function bubbleSortOpt(arr) {
   return arr;
 }
 
+// Inserion Sort Implementation
+
 function insertionSort(arr) {
   for (let i = 1; i < arr.length; i++) {
     let val = arr[i];
@@ -40,6 +44,8 @@ function insertionSort(arr) {
   }
   return arr;
 }
+
+// Selection Sort Implementation
 
 function selectionSort(arr) {
   let index;
@@ -55,4 +61,26 @@ function selectionSort(arr) {
     arr[j] = temp;
   }
   return arr;
+}
+
+// Merge Sort Implementation
+
+function merge(left, right) {
+  let sortedArr = [];
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      sortedArr.push(left.shift());
+    } else {
+      sortedArr.push(right.shift());
+    }
+  }
+  return [...sortedArr, ...left, ...right];
+}
+
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
 }
