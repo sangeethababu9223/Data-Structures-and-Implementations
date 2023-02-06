@@ -40,3 +40,19 @@ function insertionSort(arr) {
   }
   return arr;
 }
+
+function selectionSort(arr) {
+  let index;
+  for (let j = 0; j < arr.length; j++) {
+    index = j;
+    for (i = j + 1; i < arr.length; i++) {
+      if (arr[index] > arr[i]) {
+        index = i;
+      }
+    }
+    let temp = arr[index];
+    arr[index] = arr[j];
+    arr[j] = temp;
+  }
+  return arr;
+}
