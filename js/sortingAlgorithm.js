@@ -51,7 +51,7 @@ function selectionSort(arr) {
   let index;
   for (let j = 0; j < arr.length; j++) {
     index = j;
-    for (i = j + 1; i < arr.length; i++) {
+    for (let i = j + 1; i < arr.length; i++) {
       if (arr[index] > arr[i]) {
         index = i;
       }

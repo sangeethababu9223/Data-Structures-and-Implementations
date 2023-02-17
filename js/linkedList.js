@@ -79,17 +79,18 @@ class LinkedList {
       index = 0;
     current = this.head;
     while (current.element !== element) {
-      previous = current;
-      current = current.next;
-      index++;
+      if (current.next !== null) {
+        previous = current;
+        current = current.next;
+        index++;
+      } else {
+        console.log("No such element");
+        return -1;
+      }
     }
-    if (index <= this.size) {
-      previous.next = current.next;
-      this.size--;
-      return true;
-    } else {
-      console.log("No such element");
-    }
+    previous.next = current.next;
+    this.size--;
+    return true;
   }
 
   indexOf(element) {
@@ -97,14 +98,15 @@ class LinkedList {
       index = 0;
     current = this.head;
     while (current.element !== element) {
-      current = current.next;
-      index++;
+      if (current.next !== null) {
+        current = current.next;
+        index++;
+      } else {
+        console.log("No such element");
+        return;
+      }
     }
-    if (index < this.size) {
-      return index;
-    } else {
-      console.log("No such element");
-    }
+    return index;
   }
 
   isEmpty() {

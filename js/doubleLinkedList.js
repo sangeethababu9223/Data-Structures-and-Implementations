@@ -16,11 +16,9 @@ class DoubleLinkedList {
     if (this.head === null) {
       this.head = node;
     } else {
-      let current, previous;
+      let current;
       current = this.head;
-      previous = current;
       while (current.next != null) {
-        previous = current;
         current = current.next;
       }
       current.next = node;
